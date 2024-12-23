@@ -1,11 +1,9 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
   workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
 
@@ -15,6 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: true  # Ensure submodules are checked out
+
+    - name: Update submodules
+      run: git submodule update --init --recursive
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/4get:latest
