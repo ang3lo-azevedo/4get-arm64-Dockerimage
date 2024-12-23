@@ -29,4 +29,4 @@ jobs:
       run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
     - name: Build and push Docker image
-      run: docker buildx build --platform linux/arm64 . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/4get:latest --pusht
+      run: docker buildx build --platform linux/arm64 . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/4get:latest --push
