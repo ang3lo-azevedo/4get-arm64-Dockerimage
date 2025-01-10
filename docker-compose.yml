@@ -1,0 +1,12 @@
+# docker-compose.yaml
+version: "3.7"
+
+services:
+  fourget:
+    image: ang3loazevedo/4get
+    restart: unless-stopped
+    environment:
+      - FOURGET_SERVER_NAME=4get
+
+    ports:
+      - "80:80"
