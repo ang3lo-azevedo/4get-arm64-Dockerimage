@@ -9,4 +9,4 @@ services:
       - FOURGET_SERVER_NAME=4get
 
     ports:
-      - "80:80"
+      - "81:80"
